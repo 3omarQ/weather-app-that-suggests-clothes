@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageElements.forEach((element, index) => {
                     const img = document.createElement('img');
                     img.src = `${element.getAttribute('href')}`;
+                    console.log(img.src);
                     img.alt = `Image ${index + 1}`;
                     document.querySelector('.icons').appendChild(img);
                 });
