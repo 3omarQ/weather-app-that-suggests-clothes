@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchBtn=document.querySelector(".search button");
     const weatherIcon=document.querySelector(".weather-icon");
 
-    function loadImagesFromDirectory(directory) {
+    async function loadImagesFromDirectory(directory) {
         document.querySelector(".icons").innerHTML='';
         console.log(directory);
-        fetch(directory)
+        await fetch(directory)
             .then(response => response.text())
             .then(data => {
                 const parser = new DOMParser();
