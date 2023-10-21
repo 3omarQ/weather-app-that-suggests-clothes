@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
             document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
             
-            weatherIcon.src="images/"+data.weather[0].main+".png";
+            weatherIcon.src="images/"+data.weather[0].main.toLowerCase()+".png";
             document.querySelector(".weather").style.display="block";
             document.querySelector(".error").style.display="none";
 
