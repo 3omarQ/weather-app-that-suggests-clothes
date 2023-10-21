@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(".weather").style.display="block";
             document.querySelector(".error").style.display="none";
 
-            var directory="images/clothes/";
+            var directory="./images/clothes/";
 
             if (data.main.temp<22){
                 directory+="cold/"
