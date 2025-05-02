@@ -1,0 +1,22 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Build Docker image
+      run: docker build -t my-webapp .
+    
+    - name: Verify web server starts
+      run: |
+        docker run -d -p 8080:8080 --name webapp my-webapp
+        sleep 5
+        curl --fail http://localhost:8080
+        docker stop webapp
+        docker rm webapp
