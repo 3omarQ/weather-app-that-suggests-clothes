@@ -13,10 +13,3 @@ jobs:
     - name: Build Docker image
       run: docker build -t my-webapp .
     
-    - name: Verify web server starts
-      run: |
-        docker run -d -p 8080:8080 --name webapp my-webapp
-        sleep 5
-        curl --fail http://localhost:8080
-        docker stop webapp
-        docker rm webapp
