@@ -1,0 +1,23 @@
+name: CD
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+        
+      - name: Build Docker image
+        run: docker build -t my-webapp .
+        
+      - name: Deploy Docker container
+        run: |
+          docker stop my-webapp || true
+          docker rm my-webapp || true
+          docker run -d -p 8080:8080 --name my-webapp my-webapp
