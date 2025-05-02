@@ -21,3 +21,4 @@ jobs:
           docker stop my-webapp || true
           docker rm my-webapp || true
           docker run -d -p 8080:8080 --name my-webapp my-webapp
+          
